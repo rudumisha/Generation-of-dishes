@@ -1,54 +1,37 @@
 
 .jjj{
-  
     width:90px ;
     height:90px ;
+  }
+  .use{
+    float: right;
+    width: 1000px;
+  }
+  .lol{
+    width: 120px;
+    float: left;
+    padding-top: 240px;
+  }
+  h1{
+    text-align: center;
+    color: black;
+
   }
   body {
       font-family: Arial, sans-serif;
       background-color: #f4f4f4;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      height: 100vh;
-      margin: 0;
   }
   
   .img{
-    width:800px;
-    height:500px;
-    padding-top:300px;
-    margin-top: 300px;
-    padding-right: 800px;
+    width: 700px;
+    position: absolute;
+    margin-top: -90px;
+    margin-left: 100px;
 }
-.uur{
-    width:100px;
-  height:100px;
-  padding-top: 150px;
-
-padding-right:100px;
+.text{
+  padding-top: 400px;
 }
-.logo{
-    margin-left: 500px;
-    margin-bottom: 450px;
-    text-align: right;
-}  
-.uui{
-    width:120px;
-    height:120px;
-    padding-top: 150px;
- 
-  padding-right:100px;
-}
-.uuo{
-    width:150px;
-    height:150px;
-    padding-top: 150px;
-  
-  padding-right:100px;  
-}
-.kul{
-  text-align: left;
-
+.last-photo{
+  width: 110px;
 
 }
