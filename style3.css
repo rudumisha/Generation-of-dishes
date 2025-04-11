@@ -3,35 +3,59 @@
 }
 .filtruvanuia{
   color: black;
+  
 }                                        
-.filtruvanuia1{
-  color: green;
-  background-color: white;
-  border: 2px solid black;
+
+div button{
   padding: 5px;
-  width: 250px;
-  border-radius: 5px;
-}
-div p{
   border:1px solid darkgreen ;
+  width: 200px;
+  cursor: pointer;
 
 }
 body{
   background-color:lavender;
 }
-div p:hover{
+div button:hover{
 background-color:#B2D977;
 }
 .img1{
-
-  
-
+padding: 15px;
+  margin: 15px;
+  background-color: white;
+  border: 2px solid black;
+  border-radius: 5px;
+ 
 }
 img{
-  width:90px ;
-  height:90px ;
+  width:120px ;
+  height:120px ;
+  padding: 5px;
+  padding-top:50px ;
+  cursor: pointer;
+  
 }
 .div{
   display: flex;
 }
 
+div img:hover{
+  border: 2px solid #B2D977 ;
+  border-radius: 5px;
+  
+  }
+  .filtruvanuia1{
+    color: green;
+    background-color: white;
+    border: 2px solid black;
+    padding: 5px;
+    width: 250px;
+    border-radius: 5px;
+
+  }
+  .h1img1{
+    text-align: center;
+  }
+  button{
+margin: 9px;
+  }

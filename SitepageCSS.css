@@ -1,0 +1,62 @@
+.cpuskuingredientiv{
+    text-align: center;
+  }
+  .filtruvanuia{
+    color: black;
+    
+  }                                        
+  
+  div button{
+    padding: 5px;
+    border:1px solid darkgreen ;
+    width: 200px;
+    cursor: pointer;
+  
+  }
+ 
+  div button:hover{
+  background-color:#B2D977;
+  }
+  .img1{
+  padding: 15px;
+    margin: 15px;
+    background-color: white;
+    border: 2px solid black;
+    border-radius: 5px;
+   
+  }
+  img{
+    width:120px ;
+    height:120px ;
+    padding: 5px;
+    padding-top:50px ;
+    cursor: pointer;
+    
+  }
+  .div{
+    display: flex;
+  }
+  
+  div img:hover{
+    border: 2px solid #B2D977 ;
+    border-radius: 5px;
+    
+    }
+    .filtruvanuia1{
+      color: green;
+      background-color: white;
+      border: 2px solid black;
+      padding: 5px;
+      width: 250px;
+      border-radius: 5px;
+  
+    }
+    .h1img1{
+      text-align: center;
+    }
+    button{
+  margin: 9px;
+    }
+    body{
+        background-color: grey;
+    }
