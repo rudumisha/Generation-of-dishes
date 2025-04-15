@@ -1,0 +1,37 @@
+
+.jjj{
+    width:90px ;
+    height:90px ;
+  }
+  .use{
+    float: right;
+    width: 1000px;
+  }
+  .lol{
+    width: 120px;
+    float: left;
+    padding-top: 240px;
+  }
+  h1{
+    text-align: center;
+    color: black;
+
+  }
+  body {
+      font-family: Arial, sans-serif;
+      background-color: #f4f4f4;
+  }
+  
+  .img{
+    width: 700px;
+    position: absolute;
+    margin-top: -90px;
+    margin-left: 100px;
+}
+.text{
+  padding-top: 400px;
+}
+.last-photo{
+  width: 110px;
+
+}
