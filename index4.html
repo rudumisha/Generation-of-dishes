@@ -1,15 +1,57 @@
 <!DOCTYPE html>
+<html lang="uk">
 <head>
-    
+  <meta charset="UTF-8">
+  <title>Генератор страв з ШІ</title>
 </head>
 <body>
-<main>
-  
-<div>
-    
-    
-    <img src="https://vip.shuvar.com/pub/media/catalog/product/1/3/1395483995_avokado-svojstva-sorta-primenenie-kulinarii_1.jpg">
-</div>
-</main>
+  <h1>Генератор страв з Штучним Інтелектом</h1>
+  <input id="input" type="text" placeholder="Введи інгредієнт..." />
+  <button onclick="generateRecipe()">Згенерувати</button>
+  <pre id="output" style="white-space: pre-wrap;"></pre>
+
+  <script>
+    async function generateRecipe() {
+      const input = document.getElementById('input').value;
+      const output = document.getElementById('output');
+      output.textContent = 'Генерація...';
+
+      const apiKey = ''; // НЕ залишай відкритим у фінальному сайті
+
+      try {
+        const response = await fetch('https://api.openai.com/v1/chat/completions', {
+          method: 'POST',
+          headers: {
+            'Authorization': `Bearer ${apiKey}`,
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({
+            model: 'gpt-3.5-turbo',
+            messages: [{
+              role: 'user',
+              content: `Придумай простий український рецепт зі стравою, яка включає "${input}". Оформлення: назва, інгредієнти, приготування.`
+            }],
+            temperature: 0.7
+          })
+        });
+
+        const data = await response.json();
+
+        if (!response.ok) {
+          throw new Error(`${response.status} – ${data.error?.message || 'Помилка запиту'}`);
+        }
+
+        const message = data.choices?.[0]?.message?.content;
+
+        if (!message) {
+          throw new Error("Порожня відповідь від моделі");
+        }
+
+        output.textContent = message;
+      } catch (error) {
+        output.textContent = `😢 Виникла помилка: ${error.message}`;
+      }
+    }
+  </script>
 </body>
 </html>
