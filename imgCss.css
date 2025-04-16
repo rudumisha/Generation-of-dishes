@@ -46,4 +46,10 @@ display: flex;
 .zagalne{
     margin-left: 550px;
 }
-
+.img3{
+    border: 1px solid black;
+    border-radius: 10px;
+    width: 250px;
+    background-color: white;
+    padding: 10px;
+}
