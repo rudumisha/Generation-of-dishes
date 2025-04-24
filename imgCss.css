@@ -1,5 +1,6 @@
 h1{
     text-align: center;
+    
 }
 .div{
     display: flex;
@@ -33,6 +34,7 @@ display: flex;
     width: 530px;
     background-color: white;
     padding: 10px;
+    box-shadow: 10px 5px 5px gray;
     
 }
 .img{
@@ -52,4 +54,8 @@ display: flex;
     width: 250px;
     background-color: white;
     padding: 10px;
+}
+html{
+    font-family: cursive;
+
 }
