@@ -28,7 +28,7 @@ color: brown;
     text-align: center;
 }
 .img1{
-display: flex;
+    display: flex;
     border: 1px solid black;
     border-radius: 10px;
     width: 530px;
@@ -46,7 +46,8 @@ display: flex;
    padding-left: 30px;
 }
 .zagalne{
-    margin-left: 550px;
+    display: flex;
+    justify-content: center;
 }
 .img3{
     border: 1px solid black;
