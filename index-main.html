@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Генератор страв</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg-color-light: #e0eafc;
+      --bg-color-dark: #121212;
+      --text-color-light: #333;
+      --text-color-dark: #f0f0f0;
+      --card-bg-light: rgba(255, 255, 255, 0.6);
+      --card-bg-dark: rgba(40, 40, 40, 0.6);
+      --header-bg-light: rgba(255, 255, 255, 0.25);
+      --header-bg-dark: rgba(40, 40, 40, 0.8);
+      --footer-bg-light: rgba(255, 255, 255, 0.25);
+      --footer-bg-dark: rgba(30, 30, 30, 0.8);
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: var(--bg-color-light);
+      color: var(--text-color-light);
+      transition: all 0.3s ease;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    body.dark {
+      background: var(--bg-color-dark);
+      color: var(--text-color-dark);
+    }
+
+    header {
+      background: var(--header-bg-light);
+      backdrop-filter: blur(10px);
+      padding: 1.5rem 2rem;
+      text-align: center;
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+    }
+
+    body.dark header {
+      background: var(--header-bg-dark);
+    }
+
+    header h1 {
+      font-weight: 700;
+      font-size: 2rem;
+      color: #2e7d32;
+    }
+
+    .nav-icons {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      padding: 1rem;
+    }
+
+    .nav-icons img {
+      width: 45px;
+      height: 45px;
+      border-radius: 12px;
+      transition: transform 0.3s ease;
+      cursor: pointer;
+    }
+
+    .nav-icons img:hover {
+      transform: scale(1.15);
+    }
+
+    .settings-icon {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      width: 40px;
+      cursor: pointer;
+      z-index: 1000;
+      transition: transform 0.3s ease;
+    }
+
+    .settings-icon:hover {
+      transform: rotate(90deg);
+    }
+
+    .settings-menu {
+      position: fixed;
+      top: 70px;
+      right: 20px;
+      background: var(--card-bg-light);
+      backdrop-filter: blur(15px);
+      border-radius: 12px;
+      padding: 20px;
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+      display: none;
+      flex-direction: column;
+      gap: 10px;
+      z-index: 999;
+    }
+
+    .settings-menu.active {
+      display: flex;
+    }
+
+    .theme-toggle {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .theme-toggle label {
+      font-weight: 500;
+      font-size: 14px;
+    }
+
+    main {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: center;
+      gap: 30px;
+      padding: 2rem;
+    }
+
+    .img {
+      width: 100%;
+      max-width: 450px;
+      border-radius: 16px;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+      transition: transform 0.4s ease;
+    }
+
+    .img:hover {
+      transform: scale(1.03);
+    }
+
+    .text {
+      max-width: 600px;
+      background: var(--card-bg-light);
+      backdrop-filter: blur(12px);
+      padding: 30px;
+      border-radius: 20px;
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.15);
+    }
+
+    body.dark .text {
+      background: var(--card-bg-dark);
+    }
+
+    .text h1 {
+      font-size: 1.5rem;
+      margin-bottom: 1rem;
+      color: #2e7d32;
+    }
+
+    .text p {
+      margin-bottom: 0.8rem;
+      font-weight: 300;
+    }
+
+    .decorative-images {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      flex-wrap: wrap;
+      margin: 2rem;
+    }
+
+    .decorative-images img {
+      width: 120px;
+      height: 120px;
+      border-radius: 15px;
+      object-fit: cover;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s ease;
+    }
+
+    .decorative-images img:hover {
+      transform: rotate(3deg) scale(1.05);
+    }
+
+    footer {
+      margin-top: auto;
+      padding: 1rem;
+      text-align: center;
+      background: var(--footer-bg-light);
+      font-size: 0.9rem;
+    }
+
+    body.dark footer {
+      background: var(--footer-bg-dark);
+    }
+
+    @media (max-width: 768px) {
+      main {
+        flex-direction: column;
+      }
+
+      .text {
+        padding: 20px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<!-- Шестірня для налаштувань теми -->
+<img src="https://cdn-icons-png.flaticon.com/512/3524/3524659.png" alt="Налаштування" class="settings-icon" id="settingsIcon">
+
+<!-- Меню налаштувань теми -->
+<div class="settings-menu" id="settingsMenu">
+  <div class="theme-toggle">
+    <label for="themeSwitch">Темна тема</label>
+    <input type="checkbox" id="themeSwitch" />
+  </div>
+</div>
+
+<header>
+  <h1>Генератор страв</h1>
+</header>
+
+<div class="nav-icons">
+  <a target="_blank" href="https://rudumisha.github.io/gpt-dish-generator/">
+  <img src="https://cdn-icons-png.flaticon.com/512/109/109596.png" alt="Іконка 1">
+</a>
+  <a href="index3.html">
+    <img src="https://i.pinimg.com/736x/27/53/eb/2753ebd9aa9f1c8e7a1160ae8205d965.jpg" alt="Іконка 2">
+  </a>
+</div>
+
+<!-- Додано заголовок для основного контенту -->
+<section>
+  <h2 style="text-align: center; color: #2e7d32; font-size: 1.8rem; margin-top: 20px;">Ознайомтесь із генератором страв</h2>
+  <main>
+    <img class="img" src="https://fainemisto.com/media/uploads/2022/10/17/narizka.jpg" alt="Зображення страви">
+    <div class="text">
+      <h1>Як користуватися генератором страв</h1>
+      <p><strong>1. Вибір інгредієнтів:</strong> Оберіть інгредієнти, які ви хочете використати у стравах.</p>
+      <p><strong>2. Генерація рецептів:</strong> Кнопка стане активною. Натисніть для створення страв.</p>
+      <p><strong>3. Перегляд результатів:</strong> Якщо знайдені страви — отримаєте список рецептів.</p>
+    </div>
+  </main>
+</section>
+
+<section class="decorative-images">
+  <img src="https://images.unsplash.com/photo-1600891964599-f61ba0e24092" alt="Їжа 1">
+  <img src="https://images.unsplash.com/photo-1546069901-ba9599a7e63c" alt="Їжа 2">
+</section>
+
+<footer>
+  &copy; 2025 Генератор страв. Всі права захищені.
+</footer>
+
+<script>
+  
+

@@ -1,0 +1,62 @@
+h1{
+    text-align: center;
+    
+}
+.div{
+    display: flex;
+    border: 1px solid black;
+    border-radius: 10px;
+    background-color: white;
+}
+.imgo{
+    width: 200px;
+    height: 200px;
+}
+body{
+    background-color:lavender;
+}
+.random{
+    text-align: center;
+}
+.format{
+    background-color:lavender;
+}
+h3{
+color: brown;
+}
+.error{
+    text-align: center;
+}
+.img1{
+    display: flex;
+    border: 1px solid black;
+    border-radius: 10px;
+    width: 530px;
+    background-color: white;
+    padding: 10px;
+    box-shadow: 10px 5px 5px gray;
+    
+}
+.img{
+    
+    width:250px ;
+    height:250px ;
+}
+.img2{
+   padding-left: 30px;
+}
+.zagalne{
+    display: flex;
+    justify-content: center;
+}
+.img3{
+    border: 1px solid black;
+    border-radius: 10px;
+    width: 250px;
+    background-color: white;
+    padding: 10px;
+}
+html{
+    font-family: cursive;
+
+}
